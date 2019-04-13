@@ -50,7 +50,7 @@ public class ShopControll {
             return "user/userLogin";
         }
         request.getSession().setAttribute("exituser", exituser);
-        request.getSession().setAttribute("frontuser", exituser.getuUsername());
+        request.getSession().setAttribute("frontuser", exituser.getuRealname());
         request.getSession().setAttribute("frontuserId", exituser.getuId());
         request.getSession().setAttribute("money", exituser.getuMoney());
         return "redirect:index";

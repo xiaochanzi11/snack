@@ -26,7 +26,8 @@
         <img src="${pageContext.request.contextPath}/image/trimImg/wxBZ.png" alt="微信图标" class="weixin-icon"/>
         微信服务:
         <strong id="yc" style="cursor:pointer;">点击扫码加微信</strong>
-        <img id="ewm" style="display:none;" src="${pageContext.request.contextPath}/image/trimImg/myEWM.png" alt="微信图标"
+        <img id="ewm" style="display:none;" width="200px" maxlength="200px"
+             src="${pageContext.request.contextPath}/image/trimImg/myEWM.png" alt="微信图标"
              class="weixin-ewm"/>
     </div>
 </div>
