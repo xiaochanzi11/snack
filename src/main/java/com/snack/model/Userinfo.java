@@ -23,6 +23,16 @@ public class Userinfo {
 
     private Integer uScore;
 
+    private Integer counts;
+
+    public Integer getCounts() {
+        return counts;
+    }
+
+    public void setCounts(Integer counts) {
+        this.counts = counts;
+    }
+
     public Integer getuId() {
         return uId;
     }

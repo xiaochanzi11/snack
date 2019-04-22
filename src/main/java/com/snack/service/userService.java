@@ -8,6 +8,7 @@ import com.snack.model.domain.DoAdminInfo;
 import com.snack.model.domain.DoMyOrder;
 import com.snack.utils.PageHelp;
 
+import java.util.List;
 import java.util.Map;
 
 public interface userService {
@@ -36,4 +37,8 @@ public interface userService {
     int updateAdminInfo(DoAdminInfo doadminInfo);
 
     Admin selectAdminInfo(int adId);
+
+    List<Integer> echarts();
+
+    Map UserCount();
 }

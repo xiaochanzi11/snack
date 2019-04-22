@@ -35,4 +35,14 @@ public interface UserinfoMapper {
     Userinfo selectUserOne(Userinfo userinfo);
 
     List<Userinfo> selectUserinfoLimit(Map<Object, Object> map);
+
+    public Integer echarts1();
+
+    public Integer echarts2();
+
+    public Integer echarts3();
+
+    public List<Userinfo> selectMaleCount();
+
+    public List<Userinfo> selectFemaleCount();
 }

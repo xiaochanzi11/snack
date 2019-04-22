@@ -4,6 +4,7 @@ import com.snack.mapper.AccountMapper;
 import com.snack.model.Admin;
 import com.snack.model.Permission;
 import com.snack.service.adminLoginService;
+import com.snack.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,8 +60,8 @@ public class AdminLogin {
     @ResponseBody
     public String adminMainToLoginOut(HttpServletRequest request) {
         request.getSession().removeAttribute("adminName");
-        /*return ResponseUtil.successToClient();*/
-        return "/admin/login/adminLogin";
+        return ResponseUtil.successToClient();
+
     }
 
 

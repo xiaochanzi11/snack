@@ -1,5 +1,6 @@
 package com.snack.web;
 
+import com.alibaba.fastjson.JSONObject;
 import com.snack.model.Account;
 import com.snack.model.Integral;
 import com.snack.model.Userinfo;
@@ -13,6 +14,7 @@ import com.snack.utils.AjaxResult;
 import com.snack.utils.DataTables;
 import com.snack.utils.PageHelp;
 import com.snack.utils.ResponseUtil;
+import io.goeasy.GoEasy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -58,6 +61,10 @@ public class UserControll {
     public AjaxResult addUserOne(Userinfo userinfo) {
         AjaxResult aj = new AjaxResult();
         int rs = userService.addUserOne(userinfo);
+        List<Integer> list = userService.echarts();
+        GoEasy goEasy = new GoEasy("http://rest-hangzhou.goeasy.io", "BC-815b87e03de84e63ac875abcc90d8a8b");
+        String s = JSONObject.toJSONString(list);
+        goEasy.publish("user_charts", s);
         aj.setTag(rs);
         return aj;
     }

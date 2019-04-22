@@ -21,6 +21,8 @@
     <script type="text/javascript"
             src="${pageContext.request.contextPath}/js/views/adminJs/libs/easyui-lang-zh_CN.js"></script>
     <script src="${pageContext.request.contextPath}/js/libs/angular.min.js"></script>
+
+
 </head>
 <body class="easyui-layout" ng-App="adminMainApp" ng-controller="adminMainCtrl">
 <div data-options="region:'north'" style="height:100px;text-align: center;">

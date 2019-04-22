@@ -11,6 +11,8 @@ import com.snack.utils.PageHelp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -172,6 +174,44 @@ public class userServiceImpl implements userService {
     @Override
     public Admin selectAdminInfo(int adId) {
         return adminDao.selectByPrimaryKey(adId);
+    }
+
+    //图表
+    @Override
+    public List<Integer> echarts() {
+        List<Integer> list = new ArrayList<>();
+        list.add(userinfoDao.echarts1());
+        list.add(userinfoDao.echarts2());
+        list.add(userinfoDao.echarts3());
+        return list;
+    }
+
+    @Override
+    public Map UserCount() {
+
+        List<Userinfo> list1 = userinfoDao.selectMaleCount();
+        List<Userinfo> list2 = userinfoDao.selectFemaleCount();
+        List<Map> data1 = new ArrayList<>();
+        List<Map> data2 = new ArrayList<>();
+
+        for (Userinfo user : list1) {
+            Map map = new HashMap();
+            map.put("name", user.getuAddress());
+            map.put("value", user.getCounts());
+            //System.out.println(map3+"1111111");
+            data1.add(map);
+        }
+
+        for (Userinfo user : list2) {
+            Map map = new HashMap();
+            map.put("name", user.getuAddress());
+            map.put("value", user.getCounts());
+            data2.add(map);
+        }
+        Map map2 = new HashMap();
+        map2.put("data1", data1);
+        map2.put("data2", data2);
+        return map2;
     }
 
 }

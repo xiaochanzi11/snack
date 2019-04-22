@@ -13,6 +13,7 @@
         <result column="u_resgistDate" property="uResgistdate" jdbcType="DATE"/>
         <result column="u_address" property="uAddress" jdbcType="VARCHAR"/>
         <result column="u_score" property="uScore" jdbcType="INTEGER"/>
+        <result property="counts" column="counts"/>
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -345,4 +346,36 @@
         order BY u.u_resgistDate
         LIMIT #{pageStart},#{pageSize}
     </select>
+
+
+    <!--图表-->
+    <select id="echarts1" resultType="Integer">
+        select count(*)
+        from userinfo
+        where datediff(now(), u_resgistDate) &lt; 7
+    </select>
+    <select id="echarts2" resultType="Integer">
+        select count(*)
+        from userinfo
+        where datediff(now(), u_resgistDate) &lt; 14
+    </select>
+    <select id="echarts3" resultType="Integer">
+        select count(*)
+        from userinfo
+        where datediff(now(), u_resgistDate) &lt; 28
+    </select>
+
+    <select id="selectMaleCount" resultMap="BaseResultMap">
+        select u_address,count(*) counts
+        from userinfo
+        where u_sex = '男'
+        group by u_address
+    </select>
+    <select id="selectFemaleCount" resultMap="BaseResultMap">
+        select u_address, count(*) counts
+        from userinfo
+        where u_sex = '女'
+        group by u_address
+    </select>
+
 </mapper>

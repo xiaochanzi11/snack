@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface adminPieMapService {
     List<DoRecord> selectGroupBytype(String startDate, String endDate);
+
 }

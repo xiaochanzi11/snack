@@ -8,7 +8,10 @@
     <title>零食详情</title>
     <link href="${pageContext.request.contextPath}/css/common.css" rel="stylesheet" type="text/css"/>
     <link href="${pageContext.request.contextPath}/css/proDetail.css" rel="stylesheet" type="text/css"/>
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/kindeditor/themes/default/default.css"/>
+    <script charset="utf-8" src="${pageContext.request.contextPath}/kindeditor/kindeditor-min.js"></script>
+    <script charset="utf-8" src="${pageContext.request.contextPath}/kindeditor/lang/zh_CN.js"></script>
+    <script charset="utf-8" src="${pageContext.request.contextPath}/kindeditor/plugins/emoticons/emoticons.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/libs/jquery.min.js"></script>
     <style type="text/css">
         table {
@@ -38,6 +41,57 @@
             background: #F5FAFA;
         }
     </style>
+    <script>
+        $(function () {
+            var editor;
+
+            KindEditor.ready(function (K) {
+
+                editor = K.create('textarea[name="content"]', {
+                    allowFileManager: true
+                });
+
+                K('input[name=getHtml]').click(function (e) {
+                    alert(editor.html());
+                });
+                K('input[name=isEmpty]').click(function (e) {
+                    alert(editor.isEmpty());
+                });
+                K('input[name=getText]').click(function (e) {
+                    alert(editor.text());
+                });
+                K('input[name=selectedHtml]').click(function (e) {
+                    alert(editor.selectedHtml());
+                });
+                K('input[name=setHtml]').click(function (e) {
+                    editor.html('<h3>Hello KindEditor</h3>');
+                });
+                K('input[name=setText]').click(function (e) {
+                    editor.text('<h3>Hello KindEditor</h3>');
+                });
+                K('input[name=insertHtml]').click(function (e) {
+                    editor.insertHtml('<strong>插入HTML</strong>');
+                });
+                K('input[name=appendHtml]').click(function (e) {
+                    editor.appendHtml('<strong>添加HTML</strong>');
+                });
+                K('input[name=clear]').click(function (e) {
+                    editor.html('');
+                });
+            });
+
+
+            $('form').submit(function () {
+                if ($('#t5').val() != '') {
+                    return true
+                } else {
+                    alert("请评论内容再提交")
+                    return false
+                }
+            })
+            d
+        })
+    </script>
 </head>
 <body>
 <div class="span11">
@@ -52,7 +106,8 @@
         <img src="${pageContext.request.contextPath}/image/trimImg/wxBZ.png" alt="微信图标" class="weixin-icon"/>
         微信服务:
         <strong id="yc" style="cursor:pointer;">点击扫码加微信</strong>
-        <img id="ewm" style="display:none;" src="${pageContext.request.contextPath}/image/trimImg/myEWM.png" alt="微信图标"
+        <img id="ewm" style="display:none;" width="180px" height="180px"
+             src="${pageContext.request.contextPath}/image/trimImg/myEWM.png" alt="微信图标"
              class="weixin-ewm"/>
     </div>
 </div>
@@ -210,10 +265,73 @@
                 </table>
             </div>
         </div>
+        <%--<div>--%>
 
+        <table style="width:800px;height:100px;">
+            <tr>
+                <td>
+                    评论内容
+                </td>
+                <td>
+                    评论时间
+                </td>
+                <td>
+                    评论人
+                </td>
+            </tr>
+
+            <c:forEach var="list" items="${requestScope.commentList}">
+                <tr>
+
+                    <td>
+                        <span>${list.commentContent}</span>&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <span><fmt:formatDate value="${list.commentTime}" pattern="yyyy-MM-dd HH:mm:ss"/></span>&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <span>${list.user.userName}</span>
+                    </td>
+
+                </tr>
+
+            </c:forEach>
+        </table>
+
+        <%--</div>--%>
+
+        <form action="${pageContext.request.contextPath}/book/book_insertComment" method="post">
+            <textarea name="content" id="t5" style="width:400px;height:150px;visibility:hidden;"></textarea>
+            <input type="hidden" value="<s:property value="#session.user.userId"/>" name="userId"/>
+            <input type="hidden" value="<s:property value="book.bookId"/>" name="bookId"/>
+            <p style="">
+                <%--<input type="button" name="getHtml" value="取得HTML" />
+                <input type="button" name="isEmpty" value="判断是否为空" />
+                <input type="button" name="getText" value="取得文本(包含img,embed)" />
+                <input type="button" name="selectedHtml" value="取得选中HTML" />
+                <br />
+                <br />
+                <input type="button" name="setHtml" value="设置HTML" />
+                <input type="button" name="setText" value="设置文本" />
+                <input type="button" name="insertHtml" value="插入HTML" />
+                <input type="button" name="appendHtml" value="添加HTML" />
+                <input type="button" name="clear" value="清空内容" />--%>
+                <input type="reset" name="reset" value="重置"/>
+                <s:if test="#session.user!=null">
+                <input type="submit" name="submit" id="t2" value="提交"/>
+                </s:if>
+                <s:else>
+                <a href="${pageContext.request.contextPath}/user/login_form.jsp">
+            <p style="font-size: 20px">去登录--></p></a>
+            </s:else>
+            </p>
+
+        </form>
 
     </div>
+    </div>
 </div>
+
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/libs/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/views/proDetail.js"></script>
 </body>

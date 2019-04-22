@@ -26,7 +26,7 @@ public class AdminImg {
         //如果文件不为空，写入上传路径
         if (!file.isEmpty()) {
             //上传文件路径
-            String path = request.getSession().getServletContext().getRealPath("/image/trimImg/");
+            String path = request.getSession().getServletContext().getRealPath("D:/ssm_snack/snack/src/main/webapp/image/trimImg/");
             //上传文件名
             String filename = fileName;
             File filepath = new File(path, filename);

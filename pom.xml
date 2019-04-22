@@ -104,7 +104,7 @@
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>3.11</version>
+            <version>4.1.0</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -120,7 +120,23 @@
             <version>2.9.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.goeasy</groupId>
+            <artifactId>goeasy-sdk</artifactId>
+            <version>0.3.8</version>
+        </dependency>
+
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>goeasy</id>
+            <name>goeasy</name>
+            <url>http://maven.goeasy.io/content/repositories/releases/</url>
+        </repository>
+    </repositories>
+
+
     <build>
         <plugins>
             <plugin>
