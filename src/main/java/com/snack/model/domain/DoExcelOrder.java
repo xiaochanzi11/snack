@@ -1,12 +1,25 @@
 package com.snack.model.domain;
 
-public class DoExcelOrder {
+
+import cn.afterturn.easypoi.excel.annotation.Excel;
+
+import java.io.Serializable;
+
+public class DoExcelOrder implements Serializable {
+
+    @Excel(name = "订单号")
     String oId;
+    @Excel(name = "收货人")
     String oName;
+    @Excel(name = "电话")
     String oPhone;
+    @Excel(name = "地址")
     String oAddress;
+    @Excel(name = "商品名")
     String sName;
+    @Excel(name = "数量")
     String num;
+    @Excel(name = "单价")
     String money;
 
     public String getOId() {

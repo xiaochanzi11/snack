@@ -3,6 +3,7 @@ package com.snack.service;
 import com.snack.model.Snackinfo;
 import com.snack.utils.PageHelp;
 
+import java.util.List;
 import java.util.Map;
 
 public interface adminSnackInfoService {
@@ -15,4 +16,6 @@ public interface adminSnackInfoService {
     Snackinfo selectAdminUserinfoBysId(int sId);
 
     int updateAdminSnackinfo(Snackinfo snackinfo);
+
+    List<Snackinfo> selectSnackAll();
 }

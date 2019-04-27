@@ -22,3 +22,9 @@
     "sSortDescending": ": 以降序排列此列"
   }
 }
+
+<!-- 引入 echarts.js -->
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/views/adminJs/libs/echarts.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/views/adminJs/libs/china.js"></script>
+
+<script type="text/javascript" src="http://cdn-hangzhou.goeasy.io/goeasy.js"></script>

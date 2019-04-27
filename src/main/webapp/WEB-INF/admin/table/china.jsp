@@ -15,7 +15,9 @@
 <body>
 
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-<div id="chinamain" style="width: 600px;height:400px;"></div>
+<div align="center">
+    <div id="chinamain" style="width: 1000px;height:700px;"></div>
+</div>
 
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例

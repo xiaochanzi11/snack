@@ -1,6 +1,7 @@
 package com.snack.web;
 
-import com.alibaba.fastjson.JSONObject;
+import cn.afterturn.easypoi.excel.ExcelExportUtil;
+import cn.afterturn.easypoi.excel.entity.ExportParams;
 import com.snack.model.Orderdetail;
 import com.snack.model.Receiptinfo;
 import com.snack.model.domain.DoAdminOrder;
@@ -8,19 +9,22 @@ import com.snack.model.domain.DoExcelOrder;
 import com.snack.service.adminOrderService;
 import com.snack.service.userService;
 import com.snack.utils.DataTables;
-import com.snack.utils.ExcelUtil2;
 import com.snack.utils.PageHelp;
 import com.snack.utils.ResponseUtil;
-import org.apache.poi.xssf.streaming.SXSSFWorkbook;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.beans.IntrospectionException;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationTargetException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -111,10 +115,37 @@ public class AdminOrderControll {
     }
 
 
+
     //导出订单详情
     @RequestMapping("outExcelOrder")
-    @ResponseBody
-    public void outExcelOrder(HttpServletResponse response, String oId) {
+    public void exportXls(HttpServletResponse response) throws IllegalAccessException, IntrospectionException, InvocationTargetException {
+        List<DoExcelOrder> doExcelOrders = adminOrderService.outExcelOrderDetail();
+        System.out.println(doExcelOrders);
+        /*for (Album album : list) {
+            album.setImgPath("D:\\cmfz_ssz\\cmfz_ssz\\src\\main\\webapp\\jsp\\images\\audioCollection\\" + album.getImgPath());
+        }*/
+        Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams("ssls", "ddxq"), DoExcelOrder.class, doExcelOrders);
+        String oldName = "easypoi_ssls_orderDetail.xlsx";
+        String encode = null;
+        try {
+            encode = URLEncoder.encode(oldName, "utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        //设置响应头
+        response.setHeader("content-Type", "application/vnd.ms-excel");
+        response.setHeader("Content-Disposition", "attachment;fileName=" + encode);
+        ServletOutputStream outputStream = null;
+        try {
+            outputStream = response.getOutputStream();
+            //直接将写入到输出流中即可;
+            workbook.write(outputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*public void outExcelOrder(HttpServletResponse response, String oId) {
         SXSSFWorkbook workbook = new SXSSFWorkbook();
         reportSheet(workbook, oId);
         outputExcel(response, workbook, "订单详情");
@@ -155,7 +186,7 @@ public class AdminOrderControll {
             e.printStackTrace();
         }
     }
-
+*/
     //请确认收货
     @RequestMapping("userOrderConfirm")
     @ResponseBody

@@ -152,11 +152,7 @@ function initBind($http, $scope, $timeout) {
         })
     });
 
-    //导出报表
-    $('#table_id_example').on('click', '.outOrderDetail', function () {
-        var params = $(this).attr('data-id');
-        window.open("/snack/admin/order/outExcelOrder?oId=" + params);
-    });
+
 
 
     //加载详情修改
@@ -357,8 +353,7 @@ function createTable() {
                         return html;
                     } else if (row.oType == -2) {
                         html = html + "<span style='cursor:pointer' class='update' data-id='" + row.rId + "'>修改&nbsp;&nbsp;</span>"
-                            + "<span style='cursor:pointer' class='pushSnack' data-id='" + row.id + "'>确认发货&nbsp;&nbsp;</span>"
-                            + "<span style='cursor:pointer' class='outOrderDetail' data-id='" + row.oId + "'>报表</span>";
+                            + "<span style='cursor:pointer' class='pushSnack' data-id='" + row.id + "'>确认发货&nbsp;&nbsp;</span>";
                         return html;
                     } else {
                         return html;

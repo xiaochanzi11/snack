@@ -16,16 +16,17 @@
 </head>
 <body ng-app="accountApp">
 <div ng-controller="accountCtrl">
-    <span>您当前的可用资金为：￥{{momey}}元</span>
+    <%--<span>您当前的可用资金为：￥{{momey}}元</span>--%>
     <table id="table_id_example" class="display">
         <thead>
         <tr>
-            <th>时间</th>
-            <th>类型</th>
+            <%--<th>时间</th>
+            <th>类型</th>--%>
             <th>金额(元)</th>
         </tr>
         </thead>
         <tbody>
+        <td>￥{{momey}}元</td>
         </tbody>
     </table>
 </div>

@@ -233,7 +233,7 @@
         from
                 (SELECT o_num * o_money as allMoney from orderdetail where o_id = #{oId}) s
     </select>
-    <select id="outExcelOrderDetail" resultType="com.snack.model.domain.DoExcelOrder" parameterType="java.lang.String">
+    <select id="outExcelOrderDetail" resultType="com.snack.model.domain.DoExcelOrder">
         select od.o_id     as oId,
                r.o_name    as oName,
                r.o_phone   as oPhone,
@@ -244,6 +244,6 @@
         from orderdetail od
                  LEFT JOIN snackinfo s on od.s_id = s.s_id
                  LEFT JOIN receiptinfo r on r.o_id = od.o_id
-        where od.o_id = #{oId}
+
     </select>
 </mapper>

@@ -1,39 +1,42 @@
 package com.snack.model;
 
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
+
 public class Snackinfo {
+    @Excel(name = "食品编号", needMerge = true)
     private Integer sId;
 
     private String sBatch;
-
+    @Excel(name = "食品名称", needMerge = true)
     private String sName;
-
+    @Excel(name = "食品价格", needMerge = true)
     private Double sPrice;
-
+    @Excel(name = "折扣", needMerge = true)
     private String sDiscount;
-
+    @Excel(name = "食品图片", needMerge = true)
     private String sPictureurl;
-
+    @Excel(name = "食品品牌", needMerge = true)
     private String sBrand;
-
+    @Excel(name = "食品产地", needMerge = true)
     private String sPlace;
 
     private Integer sImported;
-
+    @Excel(name = "食品评分", needMerge = true)
     private Integer sScore;
-
+    @Excel(name = "生产日期", format = "yyyy年MM月dd日HH时mm分ss秒", width = 50, needMerge = true)
     private String sPdate;
-
+    @Excel(name = "保质期", format = "MM月")
     private String sQdate;
 
     private Integer state;
-
+    @Excel(name = "入库日期", format = "yyyy年MM月dd日HH时mm分ss秒", width = 50, needMerge = true)
     private String sCreatedate;
-
+    @Excel(name = "食品详情", needMerge = true)
     private String sDese;
-
+    @Excel(name = "食品数量", needMerge = true)
     private Integer sNumber;
-
+    @Excel(name = "食品类型", needMerge = true)
     private String sType;
 
     public Integer getsId() {

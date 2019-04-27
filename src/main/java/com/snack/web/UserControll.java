@@ -186,7 +186,7 @@ public class UserControll {
         return "user/myOrderSuccess";
     }
 
-    //查看当前订单
+    //查看已收货订单
     @RequestMapping("userSucOrderLimit")
     @ResponseBody
     public DataTables userSucOrderLimit(HttpServletRequest request, int start, int length) {
@@ -199,6 +199,7 @@ public class UserControll {
         datatable.setData(pageHelp.getList());
         datatable.setRecordsFiltered(pageHelp.getRecord());
         datatable.setRecordsTotal(pageHelp.getRecord());
+        System.out.println(pageHelp.getList());
         return datatable;
     }
 

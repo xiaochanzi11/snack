@@ -27,5 +27,5 @@ public interface adminOrderService {
 
     int deleteOrderdetailBydId(int dId);
 
-    List<DoExcelOrder> outExcelOrderDetail(String oId);
+    List<DoExcelOrder> outExcelOrderDetail();
 }

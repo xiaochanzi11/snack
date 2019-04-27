@@ -4,10 +4,7 @@ import com.snack.utils.DesUtils;
 
 import java.net.URLEncoder;
 
-/**
- * @author zhuangqianmin
- * @version 创建时间：2018年10月18日 上午9:53:53
- */
+
 public class Destext {
     public static void main(String[] args) {
         try {

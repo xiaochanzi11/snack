@@ -45,4 +45,10 @@ public class adminSnackinfoServiceImpl implements adminSnackInfoService {
         return snackinfoDao.updateByPrimaryKeySelective(snackinfo);
     }
 
+    @Override
+    public List<Snackinfo> selectSnackAll() {
+        List<Snackinfo> list = snackinfoDao.selectSnackAll();
+        return list;
+    }
+
 }

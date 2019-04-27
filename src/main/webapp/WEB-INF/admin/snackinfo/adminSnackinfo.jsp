@@ -16,9 +16,11 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/libs/sweetalert.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/libs/angular.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/libs/laydate.js"></script>
+
     <title>商品信息</title>
 </head>
 <body ng-App="adminSnackinfoApp">
+
 <div ng-controller="adminSnackinfoCtrl">
     商品名:<input class="text-center" id="sName">
     上架日期范围:<input class="text-center" type="text" class="demo-input" id="startDate">

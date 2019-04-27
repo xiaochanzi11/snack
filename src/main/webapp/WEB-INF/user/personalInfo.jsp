@@ -25,7 +25,7 @@
         <img src="${pageContext.request.contextPath}/image/trimImg/wxBZ.png" alt="微信图标" class="weixin-icon"/>
         微信服务:
         <strong id="yc" style="cursor:pointer;">点击扫码加微信</strong>
-        <img id="ewm" style="display:none;" width="100px" height="100px"
+        <img id="ewm" style="display:none;" width="180px" height="180px"
              src="${pageContext.request.contextPath}/image/trimImg/myEWM.png" alt="微信图标"
              class="weixin-ewm"/>
     </div>
@@ -127,7 +127,14 @@
                             <tr height=20>
                                 <td>
                                     <a style="cursor: pointer;font-size: 15px;color: red;margin-left: 35px;"
-                                       href="${pageContext.request.contextPath}/user/userInfo" target="right">个人中心</a>
+                                       href="${pageContext.request.contextPath}/user/userInfo" target="right">基本信息</a>
+                                </td>
+                            </tr>
+                            <tr height=20>
+                                <td>
+                                    <a style="cursor: pointer;font-size: 15px;color: red;margin-left: 35px;"
+                                       href="${pageContext.request.contextPath}/user/userAccount"
+                                       target="right">个人账户</a>
                                 </td>
                             </tr>
                             <tr height=20>

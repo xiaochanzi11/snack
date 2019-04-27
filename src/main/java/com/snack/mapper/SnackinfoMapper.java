@@ -45,4 +45,7 @@ public interface SnackinfoMapper {
     List<Snackinfo> selectAdminSnackLimit(Map<Object, Object> map);
 
     int selectAdminSnackCount(Map<Object, Object> map);
+
+    //数据导出查询所有订单
+    List<Snackinfo> selectSnackAll();
 }

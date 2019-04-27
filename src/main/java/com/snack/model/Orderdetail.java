@@ -2,6 +2,7 @@ package com.snack.model;
 
 public class Orderdetail {
 
+
     private Integer dId;
 
     private String oId;

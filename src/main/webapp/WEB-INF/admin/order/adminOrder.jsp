@@ -16,6 +16,14 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/libs/sweetalert.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/libs/angular.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/libs/laydate.js"></script>
+    <script>
+        $(function () {
+            //导出报表
+            $('#outExcel').on('click', function () {
+                window.location.href = ("/snack/admin/order/outExcelOrder");
+            });
+        })
+    </script>
     <title>后台订单</title>
 </head>
 <body ng-App="adminOrderApp">
@@ -29,6 +37,7 @@
     下单日期范围:<input class="text-center" type="text" class="demo-input" id="oTimeStart">
     -<input class="text-center" type="text" class="demo-input" id="oTimeEnd">
     <button id="serchAdminOrder">搜索</button>
+    <%--<button id="outExcel">报表</button>--%>
     <table id="table_id_example" class="display" style="text-align: center">
         <thead>
         <tr>

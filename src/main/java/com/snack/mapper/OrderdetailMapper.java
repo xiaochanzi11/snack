@@ -37,5 +37,6 @@ public interface OrderdetailMapper {
 
     Double selectOrderdetailPayMoney(String oId);
 
-    List<DoExcelOrder> outExcelOrderDetail(String oId);
+    /*List<DoExcelOrder> outExcelOrderDetail1(String oId);*/
+    List<DoExcelOrder> outExcelOrderDetail();
 }

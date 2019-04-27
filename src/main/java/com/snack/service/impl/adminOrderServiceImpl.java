@@ -73,8 +73,8 @@ public class adminOrderServiceImpl implements adminOrderService {
     }
 
     @Override
-    public List<DoExcelOrder> outExcelOrderDetail(String oId) {
-        return orderdetailDao.outExcelOrderDetail(oId);
+    public List<DoExcelOrder> outExcelOrderDetail() {
+        return orderdetailDao.outExcelOrderDetail();
     }
 
 }

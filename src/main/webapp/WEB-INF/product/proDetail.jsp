@@ -42,7 +42,7 @@
         }
     </style>
     <script>
-        $(function () {
+        /*$(function () {
             var editor;
 
             KindEditor.ready(function (K) {
@@ -89,8 +89,8 @@
                     return false
                 }
             })
-            d
-        })
+
+        })*/
     </script>
 </head>
 <body>
@@ -267,7 +267,7 @@
         </div>
         <%--<div>--%>
 
-        <table style="width:800px;height:100px;">
+        <%--<table style="width:800px;height:100px;">
             <tr>
                 <td>
                     评论内容
@@ -298,14 +298,14 @@
             </c:forEach>
         </table>
 
-        <%--</div>--%>
+        &lt;%&ndash;</div>&ndash;%&gt;
 
         <form action="${pageContext.request.contextPath}/book/book_insertComment" method="post">
             <textarea name="content" id="t5" style="width:400px;height:150px;visibility:hidden;"></textarea>
             <input type="hidden" value="<s:property value="#session.user.userId"/>" name="userId"/>
             <input type="hidden" value="<s:property value="book.bookId"/>" name="bookId"/>
             <p style="">
-                <%--<input type="button" name="getHtml" value="取得HTML" />
+                &lt;%&ndash;<input type="button" name="getHtml" value="取得HTML" />
                 <input type="button" name="isEmpty" value="判断是否为空" />
                 <input type="button" name="getText" value="取得文本(包含img,embed)" />
                 <input type="button" name="selectedHtml" value="取得选中HTML" />
@@ -315,7 +315,7 @@
                 <input type="button" name="setText" value="设置文本" />
                 <input type="button" name="insertHtml" value="插入HTML" />
                 <input type="button" name="appendHtml" value="添加HTML" />
-                <input type="button" name="clear" value="清空内容" />--%>
+                <input type="button" name="clear" value="清空内容" />&ndash;%&gt;
                 <input type="reset" name="reset" value="重置"/>
                 <s:if test="#session.user!=null">
                 <input type="submit" name="submit" id="t2" value="提交"/>
@@ -330,7 +330,7 @@
 
     </div>
     </div>
-</div>
+</div>--%>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/libs/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/views/proDetail.js"></script>

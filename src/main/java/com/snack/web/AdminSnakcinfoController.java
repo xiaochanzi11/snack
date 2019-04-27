@@ -1,5 +1,6 @@
 package com.snack.web;
 
+
 import com.snack.model.Snackinfo;
 import com.snack.service.adminSnackInfoService;
 import com.snack.utils.DataTables;
@@ -125,4 +126,6 @@ public class AdminSnakcinfoController {
         }
 
     }
+
+
 }

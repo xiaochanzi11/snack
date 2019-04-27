@@ -275,8 +275,8 @@
             <if test="oId != null and oId != '' ">
                 and o.o_id=#{oId}
             </if>
-            <if test="startDate !=null and startDate !='' ">
-                <![CDATA[AND o.start_date  >= #{startDate} ]]>
+            <if test="oTimeStart !=null and oTimeStart !='' ">
+                <![CDATA[AND o.o_time  >= #{oTimeStart} ]]>
             </if>
             <if test="oTimeEnd !=null and oTimeEnd !='' ">
                 <![CDATA[AND o.o_time  <= #{oTimeEnd} ]]>

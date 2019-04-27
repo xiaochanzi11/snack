@@ -12,7 +12,9 @@
 </head>
 <body>
 <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-<div id="echartsmain" style="width: 600px;height:400px;"></div>
+<div align="center">
+    <div id="echartsmain" style="width: 1000px;height:700px;"></div>
+</div>
 
 
 <script type="text/javascript">
