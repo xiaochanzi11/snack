@@ -6,11 +6,13 @@ integralModule.controller("adminImgCtrl", function ($http, $scope) {
 function initBind($http, $scope) {
     $("#uploadPic").on('click', function () {
         var fileObj = document.getElementById("file").files[0]; // js 获取文件对象
+        console.log(fileObj.name + "222222")
         if (typeof (fileObj) == "undefined" || fileObj.size <= 0) {
             swal("请选择图片!", "success");
             return;
         }
         var formFile = new FormData();
+        console.log($("#fileName").val() + "11111")
         formFile.append("fileName", $("#fileName").val());
         formFile.append("file", fileObj); //加入文件对象
         var data = formFile;

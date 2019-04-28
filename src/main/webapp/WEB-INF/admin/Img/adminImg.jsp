@@ -10,21 +10,22 @@
     <script src="${pageContext.request.contextPath}/js/libs/bootstrap.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/libs/sweetalert.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/libs/angular.min.js"></script>
+
     <title>图片管理</title>
 </head>
 <body ng-App="adminImgApp">
 <div ng-controller="adminImgCtrl">
     <h2>首页图片替换</h2>
-    <form id="indexPic" method="post">
+    <form id="indexPic" method="post" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>请选择图片:</td>
-                <td><input type="file" id="file"></td>
+                <td><input type="file" name="file" id="file"></td>
             </tr>
             <tr>
                 <td>请需要替换的图片:</td>
                 <td>
-                    <select id="fileName">
+                    <select name="fileName" id="fileName">
                         <option value="lb1.jpg">第一张</option>
                         <option value="lb2.jpg">第二张</option>
                         <option value="lb3.jpg">第三张</option>
